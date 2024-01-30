@@ -37,11 +37,12 @@ function MainPage() {
       {/* 챌린지 개별 선택 부분 */}
       {/* 145 190 */}
 
-      <div className="bg-slate-500 py-4 px-4 border-t grid grid-cols-3 justify-center items-center text-center gap-4">
+      <div className="fixed inset-x-0 mx-auto bottom-0 w-full max-w-[412px] bg-slate-500 py-4 border-t grid grid-cols-3 justify-center items-center text-center gap-4">
         <div className="py-2 bg-yellow-400">Home</div>
         <div className="py-2 bg-red-400">challenge</div>
         <div className="py-2 bg-orange-600">My</div>
       </div>
+
       {/* 하단 네비게이션 */}
     </div>
   );
