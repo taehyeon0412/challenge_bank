@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <div className="w-full max-w-[412px] mx-auto h-screen bg-black text-white">
+      <div className="w-full max-w-[412px] mx-auto h-screen bg-main-color text-white ">
         <App />
       </div>
     </QueryClientProvider>
