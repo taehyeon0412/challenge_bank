@@ -1,4 +1,4 @@
-import Nav from "Components/Common/Nav";
+import Nav from "Components/Common/BottomNav";
 
 function MyPage() {
   return (

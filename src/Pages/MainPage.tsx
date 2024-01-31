@@ -39,7 +39,7 @@ import {
 } from "./../Util/tailwindStyle";
 
 //component
-import Nav from "Components/Common/Nav";
+import Nav from "Components/Common/BottomNav";
 
 //--------------------------------------------------
 

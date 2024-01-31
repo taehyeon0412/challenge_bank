@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
 //Img
-import NavHome from "../../assets/nav/navHome.png";
-import NavChallenge from "../../assets/nav/navChallenge.png";
-import NavMy from "../../assets/nav/navMy.png";
+import NavHome from "../../assets/bottomNav/navHome.png";
+import NavChallenge from "../../assets/bottomNav/navChallenge.png";
+import NavMy from "../../assets/bottomNav/navMy.png";
 
-function Nav() {
+function BottomNav() {
   const navigate = useNavigate();
 
   const navigateToHome = () => {
@@ -44,4 +44,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default BottomNav;
