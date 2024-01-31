@@ -2,11 +2,13 @@ import BottomNav from "Components/Common/BottomNav";
 import { layout } from "Util/tailwindStyle";
 import { useNavigate, useParams } from "react-router-dom";
 
+//component
+import Button from "Components/Common/Button";
+
 //challengeImg
 import MainCoffee from "../../assets/challengeImg/init/mainCoffee.png";
 import CoffeeTitle from "../../assets/challengeImg/init/coffeeTitle.png";
 import CoffeeSubtitle from "../../assets/challengeImg/init/coffeeSubtitle.png";
-import InitButton from "../../assets/challengeImg/init/common/initButton.png";
 
 function ChallengeInit() {
   const { challengeName } = useParams();
@@ -37,14 +39,13 @@ function ChallengeInit() {
   }
 
   return (
-    <div className={`${layout}`}>
+    <div className={`${layout} flex flex-col`}>
       <div className="flex flex-col items-center">{content}</div>
-      <img
-        src={InitButton}
-        alt="InitButton"
-        className="mb-6 cursor-pointer"
-        onClick={initButtonClick}
-      />
+      <div className="flex-grow"></div>
+
+      <div onClick={initButtonClick}>
+        <Button text="시작하기" type={Button} />
+      </div>
       <BottomNav />
     </div>
   );

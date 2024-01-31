@@ -1,5 +1,7 @@
 //각 페이지 레이아웃 스타일
-export const layout = "py-11 px-[22px] min-h-screen bg-main-color";
+export const layout = "pt-11 pb-24 px-[22px] min-h-screen bg-main-color";
+export const challengeLayout =
+  "pt-32 pb-24 px-[22px] min-h-screen bg-main-color";
 
 //메인페이지 메뉴 스타일
 export const menuOneStyle =
