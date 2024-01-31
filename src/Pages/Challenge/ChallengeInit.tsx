@@ -12,8 +12,6 @@ function ChallengeInit() {
   const { challengeName } = useParams();
   const navigate = useNavigate();
 
-  console.log(challengeName);
-
   const initButtonClick = () => {
     navigate(`/challengeinit/${challengeName}/setting`, { replace: true });
   };
