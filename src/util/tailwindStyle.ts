@@ -1,4 +1,4 @@
-export const layout = "py-11 px-[22px]";
+export const layout = "py-11 px-[22px] min-h-screen bg-main-color";
 export const menuOneStyle =
   "relative rounded-2xl text-center py-24 cursor-pointer";
 
