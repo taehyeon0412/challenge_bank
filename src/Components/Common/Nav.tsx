@@ -1,15 +1,19 @@
 import { useNavigate } from "react-router-dom";
 
 //Img
-import NavHome from "../../assets/nav/nav_home.png";
-import NavChallenge from "../../assets/nav/nav_challenge.png";
-import NavMy from "../../assets/nav/nav_my.png";
+import NavHome from "../../assets/nav/navHome.png";
+import NavChallenge from "../../assets/nav/navChallenge.png";
+import NavMy from "../../assets/nav/navMy.png";
 
 function Nav() {
   const navigate = useNavigate();
 
   const navigateToHome = () => {
     navigate("/", { replace: true });
+  };
+
+  const navigateToChallenge = () => {
+    navigate("/challengeinit/coffee", { replace: true });
   };
 
   const navigateToMy = () => {
@@ -28,6 +32,7 @@ function Nav() {
         src={NavChallenge}
         alt="NavChallenge"
         className="mx-auto cursor-pointer"
+        onClick={navigateToChallenge}
       />
       <img
         src={NavMy}
