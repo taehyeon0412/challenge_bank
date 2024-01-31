@@ -44,7 +44,7 @@ function ChallengeInit() {
       <div className="flex-grow"></div>
 
       <div onClick={initButtonClick}>
-        <Button text="시작하기" type={Button} />
+        <Button text="시작하기" />
       </div>
       <BottomNav />
     </div>

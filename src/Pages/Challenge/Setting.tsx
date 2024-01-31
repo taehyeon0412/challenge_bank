@@ -19,6 +19,7 @@ import ToolTip from "../../assets/challengeImg/setting/common/tooltip.png";
 function Setting() {
   const [inputFocus, setInputFocus] = useState(false);
   const { control, handleSubmit, watch } = useForm();
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const formatNumber = (value: any) => {
     if (!value) return "";
@@ -28,10 +29,21 @@ function Setting() {
 
   const inputValue = watch("priceValue");
 
-  console.log(inputValue);
+  /*   console.log(inputValue); */
 
   const onSubmit = (data: any) => {
     console.log(data);
+  };
+
+  const submitForm = () => {
+    if (formRef.current) {
+      const submitButton = formRef.current.querySelector(
+        '[type="submit"]'
+      ) as HTMLButtonElement | null;
+      if (submitButton) {
+        submitButton.click();
+      }
+    }
   };
 
   return (
@@ -47,7 +59,11 @@ function Setting() {
           </span>
 
           <div className="relative flex justify-center items-center mt-7 h-14 border-2 border-mintColor rounded-lg overflow-hidden">
-            <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+            <form
+              ref={formRef}
+              className="w-full"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <Controller
                 name="priceValue"
                 control={control}
@@ -70,15 +86,17 @@ function Setting() {
                       //input의 숫자 시작값이 0이 표시되는것을 방지
                       onChange(formattedValue);
                     }}
-                    /* onKeyDown={(e) => {
+                    onKeyDown={(e) => {
                       if (e.key === `Enter`) {
                         e.preventDefault();
                       }
-                    }} */
+                    }}
                     //Enter키 submit 방지
                   />
                 )}
               />
+
+              <button type="submit" style={{ display: "none" }} />
             </form>
 
             <img
@@ -103,8 +121,8 @@ function Setting() {
 
         <div className="flex-grow"></div>
 
-        <div className="w-full">
-          <Button text="완료하기" type="submit" />
+        <div className="w-full" onClick={submitForm}>
+          <Button text="완료하기" />
         </div>
 
         <BottomNav />
