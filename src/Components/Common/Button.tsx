@@ -5,7 +5,7 @@ interface ButtonText {
 function Button({ text }: ButtonText) {
   return (
     <button className="flex justify-center items-center w-full h-14 rounded-xl  bg-menu-color1 cursor-pointer">
-      <span className="font-semibold">{text}</span>
+      <span className="font-semibold text-white">{text}</span>
     </button>
   );
 }

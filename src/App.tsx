@@ -8,12 +8,14 @@ import ChallengeInit from "./Pages/Challenge/ChallengeInit";
 import Setting from "./Pages/Challenge/Setting";
 import ChallengeStart from "Pages/Challenge/ChallengeStart";
 import ChallengeResult from "./Pages/Challenge/ChallengeResult";
+import ResultChoice from "Components/Common/ResultChoice";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* ChallengePage */}
+
         <Route
           path="/challengeinit/:challengeName/challengestart/result"
           element={<ChallengeResult />}
@@ -22,6 +24,7 @@ function App() {
           path="/challengeinit/:challengeName/challengestart"
           element={<ChallengeStart />}
         />
+
         <Route
           path="/challengeinit/:challengeName/setting"
           element={<Setting />}
