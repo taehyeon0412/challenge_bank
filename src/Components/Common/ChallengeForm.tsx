@@ -31,6 +31,7 @@ function ChallengeForm() {
   const onSubmit = (data: any) => {
     console.log(data);
     localStorage.setItem("userPrice", JSON.stringify(data));
+
     navigate(`/challengeinit/${challengeName}/challengestart`, {
       replace: true,
     });
