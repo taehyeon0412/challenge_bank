@@ -1,12 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 //Img
 import NavHome from "../../assets/bottomNav/navHome.png";
 import NavChallenge from "../../assets/bottomNav/navChallenge.png";
 import NavMy from "../../assets/bottomNav/navMy.png";
+import NavMyA from "../../assets/bottomNav/navMyA.png";
 
 function BottomNav() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  /* useEffect(() => {
+    if (location.pathname === "/mypage") {
+      console.log(location.pathname + "입니다.");
+    }
+  }, []); // 디버깅  */
 
   const navigateToHome = () => {
     navigate("/", { replace: true });
@@ -34,12 +43,17 @@ function BottomNav() {
         className="mx-auto cursor-pointer"
         onClick={navigateToChallenge}
       />
-      <img
-        src={NavMy}
-        alt="NavMy"
-        className="mx-auto cursor-pointer"
-        onClick={navigateToMy}
-      />
+
+      {location.pathname === "/mypage" ? (
+        <img src={NavMyA} alt="NavMyA" className="mx-auto cursor-pointer" />
+      ) : (
+        <img
+          src={NavMy}
+          alt="NavMy"
+          className="mx-auto cursor-pointer"
+          onClick={navigateToMy}
+        />
+      )}
     </div>
   );
 }
