@@ -6,12 +6,22 @@ import MainPage from "./Pages/MainPage";
 import MyPage from "Pages/MyPage";
 import ChallengeInit from "./Pages/Challenge/ChallengeInit";
 import Setting from "./Pages/Challenge/Setting";
+import ChallengeStart from "Pages/Challenge/ChallengeStart";
+import ChallengeResult from "./Pages/Challenge/ChallengeResult";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* ChallengePage */}
+        <Route
+          path="/challengeinit/:challengeName/challengestart/result"
+          element={<ChallengeResult />}
+        />
+        <Route
+          path="/challengeinit/:challengeName/challengestart"
+          element={<ChallengeStart />}
+        />
         <Route
           path="/challengeinit/:challengeName/setting"
           element={<Setting />}
