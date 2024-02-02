@@ -1,3 +1,5 @@
+import { useParams } from "react-router-dom";
+
 //component
 import BottomNav from "Components/Common/BottomNav";
 import SaveResult from "Components/Common/SaveResult";
@@ -7,11 +9,14 @@ import TopNav from "Components/Common/TopNav";
 import { challengeLayout } from "Util/tailwindStyle";
 
 function ChallengeResult() {
+  const { result } = useParams();
+
+  console.log(result);
+
   return (
     <div>
-      <TopNav />
       <div className={`${challengeLayout}`}>
-        <SaveResult />
+        <SaveResult result={result} />
         <BottomNav />
       </div>
     </div>

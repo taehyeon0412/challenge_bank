@@ -1,9 +1,24 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate, useParams } from "react-router-dom";
 
 //img
 import Stamp from "../../assets/challengeImg/resultChoice/stamp.png";
 
 function ResultChoice() {
+  const navigate = useNavigate();
+  const { challengeName } = useParams();
+
+  const onClick = (result: string) => {
+    navigate(
+      `/challengeinit/${challengeName}/challengestart/result/${result}`,
+      {
+        replace: true,
+      }
+    );
+  };
+  //페이지 이동과 함께 result값을 전달해주고 전달받는쪽은 url에서 정보를 얻는다
+
   return (
     <motion.div
       className="fixed top-0 left-0 w-full h-screen max-w-[412px] inset-x-0 mx-auto z-50 opacity-0 bg-[rgba(86,204,195,0.5)] backdrop-blur-sm flex justify-center items-center"
@@ -22,11 +37,17 @@ function ResultChoice() {
         </span>
 
         <div className="flex flex-col w-full justify-center items-center text-center gap-5">
-          <div className="w-full bg-menu-color1 py-3 rounded-xl shadow-custom">
+          <div
+            className="w-full bg-menu-color1 py-3 rounded-xl shadow-custom cursor-pointer"
+            onClick={() => onClick("success")}
+          >
             <span className="text-lg font-extrabold text-white">완료</span>
           </div>
 
-          <div className="w-full bg-white py-3 rounded-xl shadow-custom">
+          <div
+            className="w-full bg-white py-3 rounded-xl shadow-custom cursor-pointer"
+            onClick={() => onClick("fail")}
+          >
             <span className="text-lg font-extrabold text-mintColor">실패</span>
           </div>
         </div>

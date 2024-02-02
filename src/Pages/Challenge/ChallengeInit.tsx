@@ -18,6 +18,8 @@ function ChallengeInit() {
     navigate(`/challengeinit/${challengeName}/setting`, { replace: true });
   };
 
+  console.log(challengeName);
+
   let content;
 
   if (challengeName === "coffee") {
@@ -44,7 +46,7 @@ function ChallengeInit() {
       <div className="flex-grow"></div>
 
       <div onClick={initButtonClick}>
-        <Button text="시작하기" />
+        {challengeName === "coffee" ? <Button text="시작하기" /> : null}
       </div>
       <BottomNav />
     </div>

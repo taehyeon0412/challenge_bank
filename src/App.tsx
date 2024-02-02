@@ -17,7 +17,7 @@ function App() {
         {/* ChallengePage */}
 
         <Route
-          path="/challengeinit/:challengeName/challengestart/result"
+          path="/challengeinit/:challengeName/challengestart/result/:result"
           element={<ChallengeResult />}
         />
         <Route
