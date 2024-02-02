@@ -9,9 +9,9 @@ import TopNav from "Components/Common/TopNav";
 import { challengeLayout } from "Util/tailwindStyle";
 
 function ChallengeResult() {
-  const { result } = useParams();
+  const { challengeName, result } = useParams();
 
-  console.log(result);
+  console.log(challengeName, result);
 
   return (
     <div>
