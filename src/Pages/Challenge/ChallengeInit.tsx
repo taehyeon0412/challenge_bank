@@ -6,47 +6,53 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "Components/Common/Button";
 
 //challengeImg
-import MainCoffee from "../../assets/challengeImg/init/mainCoffee.png";
+/* 
 import CoffeeTitle from "../../assets/challengeImg/init/coffeeTitle.png";
-import CoffeeSubtitle from "../../assets/challengeImg/init/coffeeSubtitle.png";
+import CoffeeSubtitle from "../../assets/challengeImg/init/coffeeSubtitle.png"; */
 
 function ChallengeInit() {
   const { challengeName } = useParams();
   const navigate = useNavigate();
 
   const initButtonClick = () => {
-    navigate(`/challengeinit/${challengeName}/setting`, { replace: true });
+    if (
+      challengeName &&
+      ["coffee", "eat", "delivery"].includes(challengeName)
+    ) {
+      navigate(`/challengeinit/${challengeName}/setting`, { replace: true });
+    } else {
+      navigate(`/challengeinit/${challengeName}/challengestart`, {
+        replace: true,
+      });
+    }
   };
 
   console.log(challengeName);
 
-  let content;
-
-  if (challengeName === "coffee") {
-    content = (
-      <>
-        <img src={MainCoffee} alt="MainCoffee" className="pt-11 pb-8" />
-        <img src={CoffeeTitle} alt="CoffeeTitle" className="pb-7" />
-        <img src={CoffeeSubtitle} alt="CoffeeSubtitle" className="pb-12" />
-      </>
-    );
-  } else {
-    content = (
-      <>
-        <div className="flex justify-center items-center h-full py-64">
-          <p className="text-xl font-semibold text-black">개발 중입니다.</p>
-        </div>
-      </>
-    );
-  }
-
   return (
     <div className={`${layout} flex flex-col`}>
-      <div className="flex flex-col items-center">{content}</div>
+      <div className="flex flex-col items-center">
+        <img
+          src={require(`../../assets/challengeImg/init/${challengeName}.png`)}
+          alt={challengeName}
+          className="pt-11 pb-8"
+        />
+        <img
+          src={require(`../../assets/challengeImg/init/${challengeName}Title.png`)}
+          alt={`${challengeName} title`}
+          className="pb-7"
+        />
+        <img
+          src={require(`../../assets/challengeImg/init/${challengeName}Subtitle.png`)}
+          alt={`${challengeName} subtitle`}
+          className="pb-12"
+        />
+      </div>
+
       <div className="flex-grow"></div>
 
       <div onClick={initButtonClick}>
-        {challengeName === "coffee" ? <Button text="시작하기" /> : null}
+        <Button text="시작하기" />
       </div>
       <BottomNav />
     </div>
