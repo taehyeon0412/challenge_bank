@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 //component
 import BottomNav from "Components/Common/BottomNav";
 import SaveResult from "Components/Common/SaveResult";
-import TopNav from "Components/Common/TopNav";
+import HealthResult from "Components/Common/HealthResult";
 
 //util
 import { challengeLayout } from "Util/tailwindStyle";
@@ -16,7 +16,13 @@ function ChallengeResult() {
   return (
     <div>
       <div className={`${challengeLayout}`}>
-        <SaveResult result={result} />
+        {challengeName &&
+        ["coffee", "eat", "delivery"].includes(challengeName) ? (
+          <SaveResult result={result} />
+        ) : (
+          <HealthResult result={result} />
+        )}
+
         <BottomNav />
       </div>
     </div>
