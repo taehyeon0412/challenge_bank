@@ -47,7 +47,7 @@ function ChallengeStart() {
         <span className="text-2xl font-bold pb-16">{Title}</span>
 
         <Calendar
-          className="flex-grow text-grayColor bg-main-color border-none"
+          className="flex-grow text-black bg-main-color border-none"
           onChange={onChange}
           locale="en"
           showNavigation={false}
