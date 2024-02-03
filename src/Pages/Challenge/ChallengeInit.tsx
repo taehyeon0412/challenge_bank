@@ -1,6 +1,7 @@
 import BottomNav from "Components/Common/BottomNav";
 import { layout } from "Util/tailwindStyle";
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 //component
 import Button from "Components/Common/Button";
@@ -15,15 +16,28 @@ function ChallengeInit() {
   const navigate = useNavigate();
 
   const initButtonClick = () => {
-    if (
-      challengeName &&
-      ["coffee", "eat", "delivery"].includes(challengeName)
-    ) {
-      navigate(`/challengeinit/${challengeName}/setting`, { replace: true });
-    } else {
+    if (typeof challengeName === "undefined") {
+      console.error("Challenge name is undefined.");
+      //challengeName이 undefined이면 실행을 방지해서 오류를 막음
+      return;
+    }
+    const data = localStorage.getItem(challengeName); //로컬스토리지에 key값(challengeName)
+
+    if (data) {
       navigate(`/challengeinit/${challengeName}/challengestart`, {
         replace: true,
       });
+    } else {
+      if (
+        challengeName &&
+        ["coffee", "eat", "delivery"].includes(challengeName)
+      ) {
+        navigate(`/challengeinit/${challengeName}/setting`, { replace: true });
+      } else {
+        navigate(`/challengeinit/${challengeName}/challengestart`, {
+          replace: true,
+        });
+      }
     }
   };
 
