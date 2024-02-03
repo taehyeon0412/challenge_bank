@@ -30,7 +30,14 @@ function ChallengeForm() {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    localStorage.setItem("userPrice", JSON.stringify(data));
+
+    if (typeof challengeName === "undefined") {
+      console.error("Challenge name is undefined.");
+      //challengeName이 undefined이면 실행을 방지해서 오류를 막음
+      return;
+    }
+
+    localStorage.setItem(challengeName, JSON.stringify(data));
 
     navigate(`/challengeinit/${challengeName}/challengestart`, {
       replace: true,

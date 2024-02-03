@@ -12,9 +12,6 @@ import Coin7 from "../../assets/splashImg/coin7.png";
 import Coin8 from "../../assets/splashImg/coin8.png";
 
 function SplashScreen() {
-  const fadeOutClass = "transition-opacity duration-1000 opacity-0";
-  const visibleClass = "opacity-100";
-
   return (
     <div
       className={`${layout} absolute z-50 w-full max-w-[412px] mx-auto
@@ -38,7 +35,7 @@ function SplashScreen() {
       <img src={SplashSubtitle} alt="SplashSubtitle" />
 
       <div className="relative w-full flex-grow">
-        <img src={Coin7} alt="Coin7" className="absolute bottom-0" />
+        <img src={Coin7} alt="Coin7" className="absolute" />
         <img src={Coin8} alt="Coin8" className="absolute -bottom-32 right-0 " />
       </div>
     </div>
