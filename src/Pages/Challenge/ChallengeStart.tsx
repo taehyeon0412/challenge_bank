@@ -105,7 +105,7 @@ function ChallengeStart() {
         switch (entry?.result) {
           case "success":
             return (
-              <div>
+              <div className="relative flex justify-center items-center w-full h-full">
                 <img
                   src={require(`../../assets/challengeImg/resultEmoti/${challengeName}Success.png`)}
                   alt="Success"
@@ -114,11 +114,12 @@ function ChallengeStart() {
             );
           case "fail":
             return (
-              <img
-                src={require(`../../assets/challengeImg/resultEmoti/${challengeName}Fail.png`)}
-                alt="Fail"
-                style={{ width: "20px", height: "20px" }}
-              />
+              <div className="relative flex justify-center items-center w-full h-full">
+                <img
+                  src={require(`../../assets/challengeImg/resultEmoti/${challengeName}Fail.png`)}
+                  alt="Fail"
+                />
+              </div>
             );
           default:
             return null;
