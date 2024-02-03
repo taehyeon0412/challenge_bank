@@ -1,5 +1,5 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../../css/ReactCalender.css";
@@ -11,17 +11,34 @@ import ResultChoice from "Components/Common/ResultChoice";
 
 //util
 import { challengeLayout } from "Util/tailwindStyle";
-import { getStringDateToday } from "Util/date";
+
+interface Entry {
+  date: string | null; //날짜가 없는 경우도 포함
+  result: string | null;
+}
 
 function ChallengeStart() {
-  const navigate = useNavigate();
   const { challengeName } = useParams();
   const [date, setDate] = useState(new Date());
   const Title = `${date.getMonth() + 1}월 챌린지 기록`;
   //js에서는 1월이 0으로 시작해서 +1을 해줘야됨
   const [dayClick, setDayClick] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [data, setData] = useState<Entry[]>([]); //data는 Entry의 배열이어야 한다 (데이터가 1개가 아니므로)
 
+  //페이지 시작시 데이터 불러오기
+  useEffect(() => {
+    if (typeof challengeName === "undefined") {
+      console.error("Challenge name is undefined.");
+      //challengeName이 undefined이면 실행을 방지해서 오류를 막음
+      return;
+    }
+    const storedData = localStorage.getItem(challengeName);
+    if (storedData) {
+      setData(JSON.parse(storedData));
+    }
+  }, [challengeName]);
+
+  //
   const onChange = (newDate: any) => {
     setDate(newDate);
   };
@@ -50,19 +67,19 @@ function ChallengeStart() {
       .slice(0, 10);
     //한국에 맞는 현재시간 구하는 것
 
-    const savedValue = localStorage.getItem(challengeName);
-    //기존에 저장된 정보를 불러옴
+    let dataToSave = JSON.parse(localStorage.getItem(challengeName) || "[]");
+    //challengeName와 관련된 데이터를 찾아서 있으면 넣고 없으면 빈배열로 함
 
-    let updateValues = [];
-
-    if (savedValue) {
-      updateValues = JSON.parse(savedValue); //기존정보가 있으면 updateValues에 넣음
-    }
+    const existingEntryIndex = dataToSave.findIndex(
+      (entry: Entry) => entry.date === clickedDate
+    );
+    //dataToSave에서 클릭한 날짜와 동일한 요소를 검색함
 
     //클릭한 날짜를 변수에 넣고 if문을 이용하여 updateValues안에 클릭한 날짜가 있는지 includes로 찾음
-    if (!updateValues.includes(clickedDate)) {
-      updateValues.push(clickedDate);
-      localStorage.setItem(challengeName, JSON.stringify(updateValues));
+    if (existingEntryIndex === -1) {
+      //-1은 일치하는 요소를 찾을수 없음을 나타내는 메소드
+      dataToSave.push({ date: clickedDate, result: "pending" });
+      localStorage.setItem(challengeName, JSON.stringify(dataToSave));
       setDayClick(true);
 
       const currentUrl = new URL(window.location.href);
@@ -72,8 +89,44 @@ function ChallengeStart() {
     }
   };
 
-  /* console.log(dayClick); */
-  /* console.log(selectedDate); */
+  //타일에 이미지 나오게 하는 함수
+  const tileContent = ({ date, view }: { date: Date; view: string }) => {
+    if (view === "month") {
+      const clickedDate = new Date(
+        date.getTime() - date.getTimezoneOffset() * 60000
+      )
+        .toISOString()
+        .slice(0, 10);
+      const entry: Entry | undefined = data.find(
+        (entry: Entry) => entry.date === clickedDate
+      );
+
+      if (entry) {
+        switch (entry?.result) {
+          case "success":
+            return (
+              <div>
+                <img
+                  src={require(`../../assets/challengeImg/resultEmoti/${challengeName}Success.png`)}
+                  alt="Success"
+                />
+              </div>
+            );
+          case "fail":
+            return (
+              <img
+                src={require(`../../assets/challengeImg/resultEmoti/${challengeName}Fail.png`)}
+                alt="Fail"
+                style={{ width: "20px", height: "20px" }}
+              />
+            );
+          default:
+            return null;
+        }
+      }
+    }
+    return null;
+  };
 
   return (
     <div>
@@ -94,7 +147,7 @@ function ChallengeStart() {
           }
           calendarType="gregory"
           tileDisabled={({ date }) => isDateDisabled(date)}
-          /* onClickDay={onClick} */
+          tileContent={tileContent}
           onClickDay={onClick}
         />
         <BottomNav />
