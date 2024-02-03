@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //MainImg
@@ -40,6 +40,7 @@ import {
 
 //component
 import Nav from "Components/Common/BottomNav";
+import SplashScreen from "Components/Common/SplashScreen";
 
 //--------------------------------------------------
 

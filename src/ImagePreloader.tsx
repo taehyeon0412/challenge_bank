@@ -15,8 +15,8 @@ const preloadImages = (
     }
   });
 };
+//이미지 불러오는 함수 assets에 있는 모든 이미지를 context로 자동화해서 불러옴
 
-// ImagePreloader component
 const ImagePreloader: React.FC = () => {
   useEffect(() => {
     const imagesContext = require.context("./assets", true, /\.png$/);
