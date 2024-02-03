@@ -37,7 +37,9 @@ function ChallengeForm() {
       return;
     }
 
-    localStorage.setItem(challengeName, JSON.stringify(data));
+    let updateValues = [];
+    updateValues.push(data);
+    localStorage.setItem(challengeName, JSON.stringify(updateValues));
 
     navigate(`/challengeinit/${challengeName}/challengestart`, {
       replace: true,

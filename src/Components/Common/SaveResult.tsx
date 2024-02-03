@@ -32,9 +32,21 @@ function SaveResult({ result }: Result) {
 
     if (userPrice) {
       const priceData = JSON.parse(userPrice); //Json으로 저장된 값을 다시 객체로 돌림
-      setPrice(priceData.priceValue);
+
+      if (Array.isArray(priceData) && priceData.length > 0) {
+        const firstItem = priceData[0];
+        //배열이고 price에 있는 정보가 1개 이상이면 firstItem에 priceData의 첫번째 정보를 넣는다
+
+        if (typeof firstItem === "object" && "priceValue" in firstItem) {
+          setPrice(firstItem.priceValue);
+          //firstItem이 객체이고 null이나 문자열이나 숫자와 같은 다른 데이터 유형이 아닌지 확인
+          //priceValue라는 속성이 firstItem 객체 내에 존재하는지 확인
+          //setPrice에 넣어줌
+        }
+      }
     }
   }, []);
+  //로컬스토리지에서 value값을 들고오는 함수
 
   /* console.log(isResult); */
 
@@ -56,7 +68,7 @@ function SaveResult({ result }: Result) {
       <img src={Success} alt="Success" className="pb-16" />
       <div className="flex">
         <span className="text-2xl font-extrabold text-black pr-3">
-          {price}원이 채워졌어요
+          {new Intl.NumberFormat("en-US").format(Number(price))}원이 채워졌어요
         </span>
         <img src={Money} alt="Money" className="w-[30px] h-[30px]" />
       </div>
