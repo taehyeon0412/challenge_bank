@@ -5,11 +5,42 @@ import { useNavigate, useParams } from "react-router-dom";
 //img
 import Stamp from "../../assets/challengeImg/resultChoice/stamp.png";
 
+interface Entry {
+  date: string | null; //날짜가 없는 경우도 포함
+  result: string;
+}
+
 function ResultChoice() {
   const navigate = useNavigate();
   const { challengeName } = useParams();
 
   const onClick = (result: string) => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const date = queryParams.get(`date`);
+    //url에서 date 연결된 값 찾기
+
+    /* console.log(date); */
+
+    const storageKey = `${challengeName}`; //키값
+
+    let dataToSave: Entry[] = JSON.parse(
+      localStorage.getItem(storageKey) || "[]"
+    );
+    //새로운 배열을 만들고 storageKey와 관련된 데이터를 찾아서 있으면 넣고 없으면 빈배열로 함
+
+    const existingEntry = dataToSave.find(
+      (entry: Entry) => entry.date === date
+    );
+    //현재항목 === 기존 항목 찾음
+
+    if (existingEntry) {
+      existingEntry.result = result; //기존항목이 있으면 업데이트를 함
+    } else {
+      dataToSave.push({ date, result }); //기존항목이 없으면 date,result 배열을 push함
+    }
+
+    localStorage.setItem(storageKey, JSON.stringify(dataToSave));
+
     navigate(
       `/challengeinit/${challengeName}/challengestart/result/${result}`,
       {
