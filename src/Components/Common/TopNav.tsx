@@ -41,11 +41,7 @@ function TopNav() {
         {content}{" "}
         <img src={Vector} alt="Vector" className="absolute top-2 -right-4" />
       </span>
-      <img
-        src={CalenderBtn}
-        alt="CalenderBtn"
-        className="col-span-2 cursor-pointer justify-self-end"
-      />
+      <div className="col-span-2 cursor-pointer justify-self-end" />
     </div>
   );
 }

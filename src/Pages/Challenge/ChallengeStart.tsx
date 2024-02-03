@@ -36,7 +36,8 @@ function ChallengeStart() {
     setDayClick(true);
   };
 
-  /*  console.log(dayClick); */
+  /* console.log(dayClick); */
+  console.log(selectedDate);
 
   return (
     <div>

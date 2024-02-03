@@ -22,7 +22,7 @@ function HealthResult({ result }: Result) {
 
   /* console.log(isResult); */
 
-  /* useEffect(() => {
+  useEffect(() => {
     const timeoutId = setTimeout(() => {
       navigate(`/challengeinit/${challengeName}/challengestart`, {
         replace: true,
@@ -33,7 +33,7 @@ function HealthResult({ result }: Result) {
     // 컴포넌트가 언마운트되면 타이머를 정리 (cleanup)
     return () => clearTimeout(timeoutId);
   }, [navigate]);
-  //3초뒤에 페이지 이동함수 */
+  //3초뒤에 페이지 이동함수
 
   return isResult === "success" ? (
     <div className="flex flex-col justify-center items-center">
