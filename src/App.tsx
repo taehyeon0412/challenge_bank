@@ -10,6 +10,7 @@ import ChallengeStart from "Pages/Challenge/ChallengeStart";
 import ChallengeResult from "./Pages/Challenge/ChallengeResult";
 import ResultChoice from "Components/Common/ResultChoice";
 import ImagePreloader from "ImagePreloader";
+import LoginPage from "Pages/LoginPage";
 
 //지워야됨
 import SplashScreen from "Components/Common/SplashScreen";
@@ -46,6 +47,8 @@ function App() {
           <BrowserRouter>
             <Routes>
               {/* ChallengePage */}
+
+              <Route path="/login" element={<LoginPage />} />
 
               <Route
                 path="/challengeinit/:challengeName/challengestart/result/:result"

@@ -1,7 +1,7 @@
 import { layout } from "Util/tailwindStyle";
 import SplashMain from "../../assets/splashImg/splash.png";
-import SplashTitle from "../../assets/splashImg/splashTitle.png";
-import SplashSubtitle from "../../assets/splashImg/splashSubtitle.png";
+import SplashTitle from "../../assets/splashImg/splashTitle.svg";
+import SplashSubtitle from "../../assets/splashImg/splashSubtitle.svg";
 import Coin1 from "../../assets/splashImg/coin1.png";
 import Coin2 from "../../assets/splashImg/coin2.png";
 import Coin3 from "../../assets/splashImg/coin3.png";
