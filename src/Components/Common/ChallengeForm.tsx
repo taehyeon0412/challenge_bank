@@ -71,15 +71,22 @@ function ChallengeForm() {
         <div className="relative flex justify-center items-center mt-7 h-14 border-2 border-mintColor rounded-lg overflow-hidden">
           <form
             ref={formRef}
-            className="w-full  relative flex items-center"
+            className="w-full  relative flex items-center justify-center"
             onSubmit={handleSubmit(onSubmit)}
           >
             <Controller
               name="priceValue"
               control={control}
               rules={{
-                validate: (value) =>
-                  value !== "" || "가격(숫자)를 반드시 입력해 주세요!",
+                validate: (value) => {
+                  if (value === "") {
+                    return "가격(숫자)를 반드시 입력해 주세요!";
+                  } else if (value < 500) {
+                    return "가격(숫자)는 500원 이상 입력해 주세요";
+                  } else {
+                    return true;
+                  }
+                },
               }}
               defaultValue=""
               render={({
@@ -112,7 +119,7 @@ function ChallengeForm() {
                     //Enter키 submit 방지
                   />
                   {error && (
-                    <p className="absolute left-5 text-xs text-red-300 font-black pointer-events-none">
+                    <p className="absolute text-xs text-red-300 font-black pointer-events-none">
                       {error.message}
                     </p>
                   )}
