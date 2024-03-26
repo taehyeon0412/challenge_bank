@@ -6,8 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "Components/Common/Button";
 
 //Img
-import QuestionMark from "../../assets/challengeImg/setting/common/questionmark.png";
-import Alert from "../../assets/challengeImg/setting/common/alert.png";
+import QuestionMark from "../../assets/challengeImg/setting/common/questionmark.svg";
+import Alert from "../../assets/challengeImg/setting/common/alert.svg";
 import ToolTip from "../../assets/challengeImg/setting/common/tooltip.png";
 
 function ChallengeForm() {
@@ -137,9 +137,10 @@ function ChallengeForm() {
         {inputFocus && (
           <>
             <img src={Alert} alt="Alert" className="absolute -bottom-16" />
+
             <img
-              src={ToolTip}
-              alt="ToolTip"
+              src={require(`../../assets/challengeImg/setting/${challengeName}Tooltip.svg`)}
+              alt={`${challengeName}_ToolTip`}
               className="absolute -right-1 -top-1"
             />
           </>

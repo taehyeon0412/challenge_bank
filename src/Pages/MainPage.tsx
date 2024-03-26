@@ -7,28 +7,22 @@ import { ReactComponent as Title2Icon } from "../assets/main/title2.svg";
 import { ReactComponent as TapRound1 } from "../assets/main/tapRound1.svg";
 
 //menuImg
-import healthTapTitle1 from "../assets/main/healthTapTitle1.png";
-import healthTapTitle2 from "../assets/main/healthTapTitle2.png";
-import SavingTapTitle1 from "../assets/main/savingTapTitle1.png";
-import SavingTapTitle2 from "../assets/main/savingTapTitle2.png";
+import healthTapTitle1 from "../assets/main/healthTapTitle1.svg";
+import healthTapTitle2 from "../assets/main/healthTapTitle2.svg";
+import SavingTapTitle1 from "../assets/main/savingTapTitle1.svg";
+import SavingTapTitle2 from "../assets/main/savingTapTitle2.svg";
 import CoffeeIcon from "../assets/saveTapImg/coffeeIcon.png";
-import CoffeeTitle1 from "../assets/saveTapImg/coffeeTitle1.png";
-import CoffeeTitle2 from "../assets/saveTapImg/coffeeTitle2.png";
+import CoffeeTitle1 from "../assets/saveTapImg/coffeeTitle1.svg";
 import EatIcon from "../assets/saveTapImg/eatIcon.png";
-import EatTitle1 from "../assets/saveTapImg/eatTitle1.png";
-import EatTitle2 from "../assets/saveTapImg/eatTitle2.png";
+import EatTitle1 from "../assets/saveTapImg/eatTitle1.svg";
 import DeliveryIcon from "../assets/saveTapImg/deliveryIcon.png";
-import DeliveryTitle1 from "../assets/saveTapImg/deliveryTitle1.png";
-import DeliveryTitle2 from "../assets/saveTapImg/deliveryTitle2.png";
+import DeliveryTitle1 from "../assets/saveTapImg/deliveryTitle1.svg";
 import AlcoholIcon from "../assets/healthTabImg/alcoholIcon.png";
-import AlcoholTitle1 from "../assets/healthTabImg/alcoholTitle1.png";
-import AlcoholTitle2 from "../assets/healthTabImg/alcoholTitle2.png";
+import AlcoholTitle1 from "../assets/healthTabImg/alcoholTitle1.svg";
 import WalkIcon from "../assets/healthTabImg/walkIcon.png";
-import WalkTitle1 from "../assets/healthTabImg/walkTitle1.png";
-import WalkTitle2 from "../assets/healthTabImg/walkTitle2.png";
+import WalkTitle1 from "../assets/healthTabImg/walkTitle1.svg";
 import GymIcon from "../assets/healthTabImg/gymIcon.png";
-import GymTitle1 from "../assets/healthTabImg/gymTitle1.png";
-import GymTitle2 from "../assets/healthTabImg/gymTitle2.png";
+import GymTitle1 from "../assets/healthTabImg/gymTitle1.svg";
 
 //util
 import {
@@ -140,12 +134,11 @@ function MainPage() {
               {selectTab === 1 ? (
                 <>
                   <img src={CoffeeTitle1} alt="CoffeeTitle1" />
-                  <img src={CoffeeTitle2} alt="CoffeeTitle2" />
+                  {/*  <img src={CoffeeTitle2} alt="CoffeeTitle2" /> */}
                 </>
               ) : (
                 <>
                   <img src={AlcoholTitle1} alt="AlcoholTitle1" />
-                  <img src={AlcoholTitle2} alt="AlcoholTitle2" />
                 </>
               )}
             </div>
@@ -171,12 +164,11 @@ function MainPage() {
               {selectTab === 1 ? (
                 <>
                   <img src={EatTitle1} alt="EatTitle1" />
-                  <img src={EatTitle2} alt="EatTitle2" />
+                  {/*  <img src={EatTitle2} alt="EatTitle2" /> */}
                 </>
               ) : (
                 <>
                   <img src={WalkTitle1} alt="WalkTitle1" />
-                  <img src={WalkTitle2} alt="WalkTitle2" />
                 </>
               )}
             </div>
@@ -203,12 +195,10 @@ function MainPage() {
               {selectTab === 1 ? (
                 <>
                   <img src={DeliveryTitle1} alt="DeliveryTitle1" />
-                  <img src={DeliveryTitle2} alt="DeliveryTitle2" />
                 </>
               ) : (
                 <>
                   <img src={GymTitle1} alt="GymTitle1" />
-                  <img src={GymTitle2} alt="GymTitle2" />
                 </>
               )}
             </div>

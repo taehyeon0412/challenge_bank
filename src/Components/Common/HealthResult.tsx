@@ -3,9 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 
 //img
 import Success from "../../assets/healthResultImg/success.png";
-import SuccessText from "../../assets/healthResultImg/successText.png";
+import SuccessText from "../../assets/healthResultImg/successText.svg";
 import Fail from "../../assets/healthResultImg/fail.png";
-import FailText from "../../assets/healthResultImg/failText.png";
+import FailText from "../../assets/healthResultImg/failText.svg";
 
 interface Result {
   result?: string;

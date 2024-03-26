@@ -21,7 +21,7 @@ function Setting() {
           className="pb-7"
         />
         <img
-          src={require(`../../assets/challengeImg/setting/${challengeName}Title.png`)}
+          src={require(`../../assets/challengeImg/setting/${challengeName}Title.svg`)}
           alt={`${challengeName} title`}
           className="pb-12"
         />

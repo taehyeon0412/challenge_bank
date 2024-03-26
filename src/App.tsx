@@ -33,7 +33,7 @@ function App() {
     <>
       {showSplash && (
         <div
-          className={`transition-opacity duration-[1300ms] ${
+          className={`transition-opacity duration-[1300ms] h-full ${
             startFadeOut ? "opacity-0" : "opacity-100"
           }`}
         >

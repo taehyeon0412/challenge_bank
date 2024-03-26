@@ -52,12 +52,12 @@ function ChallengeInit() {
           className="pt-11 pb-8"
         />
         <img
-          src={require(`../../assets/challengeImg/init/${challengeName}Title.png`)}
+          src={require(`../../assets/challengeImg/init/${challengeName}Title.svg`)}
           alt={`${challengeName} title`}
           className="pb-7"
         />
         <img
-          src={require(`../../assets/challengeImg/init/${challengeName}Subtitle.png`)}
+          src={require(`../../assets/challengeImg/init/${challengeName}Subtitle.svg`)}
           alt={`${challengeName} subtitle`}
           className="pb-12"
         />

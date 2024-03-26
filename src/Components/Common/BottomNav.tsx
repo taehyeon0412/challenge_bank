@@ -2,10 +2,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 //Img
-import NavHome from "../../assets/bottomNav/navHome.png";
-import NavChallenge from "../../assets/bottomNav/navChallenge.png";
-import NavMy from "../../assets/bottomNav/navMy.png";
-import NavMyA from "../../assets/bottomNav/navMyA.png";
+import NavHome from "../../assets/bottomNav/navHome.svg";
+import NavChallenge from "../../assets/bottomNav/navChallenge.svg";
+import NavMy from "../../assets/bottomNav/navMy.svg";
+import NavMyA from "../../assets/bottomNav/navMyA.svg";
 
 function BottomNav() {
   const navigate = useNavigate();
