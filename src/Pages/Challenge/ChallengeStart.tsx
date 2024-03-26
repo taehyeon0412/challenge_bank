@@ -43,11 +43,11 @@ function ChallengeStart() {
     setDate(newDate);
   };
 
-  //현재 날짜 이후로 선택안되게 하기
+  //현재 날짜 이후로 선택안되게 하기 => 현재날짜만 선택되게 기획 변경
   const isDateDisabled = (date: any) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0); //날짜비교만 할수있게 시간을 전부 0으로 설정
-    return date > today; // 날짜가 현재보다 많으면 true를 반환함
+    return date.getTime() !== today.getTime(); // 현재날짜가 아니면 true를 반환함
   };
 
   //날짜 클릭하면 현재날짜를 url로 넘기고 로컬스토리지에 있는 값을 업데이트하는 함수
@@ -135,7 +135,7 @@ function ChallengeStart() {
       <div
         className={`${challengeLayout} flex flex-col items-center text-black`}
       >
-        <span className="text-2xl font-bold pb-16">{Title}</span>
+        <span className="text-2xl font-bold pb-7">{Title}</span>
 
         <Calendar
           className="flex-grow text-black bg-main-color border-none"
